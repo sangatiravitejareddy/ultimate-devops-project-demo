@@ -1,1 +1,21 @@
-
+---
+# Source: opentelemetry-demo/templates/component.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: opentelemetry-demo-frauddetectionservice
+  labels:
+  
+    opentelemetry.io/name: opentelemetry-demo-frauddetectionservice
+    app.kubernetes.io/instance: opentelemetry-demo
+    app.kubernetes.io/component: frauddetectionservice
+    app.kubernetes.io/name: opentelemetry-demo-frauddetectionservice
+spec:
+  type: ClusterIP
+  ports:
+    - port: 8080
+      name: tcp-service
+      targetPort: 8080
+  selector:
+    
+    opentelemetry.io/name: opentelemetry-demo-frauddetectionservice
